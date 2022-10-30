@@ -1,0 +1,9 @@
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\bin\Debug\TrashMaze.exe.config
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\bin\Debug\TrashMaze.exe
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\bin\Debug\TrashMaze.pdb
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.AssemblyReference.cache
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Properties.Resources.resources
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.GenerateResource.cache
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.CoreCompileInputs.cache
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.exe
+C:\Users\mpodl\source\repos\TrashMaze\TrashMaze\obj\Debug\TrashMaze.pdb
