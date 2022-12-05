@@ -17,3 +17,13 @@ C:\Users\mpodl\Downloads\TrashMaze-main\TrashMaze-main\TrashMaze\TrashMaze\obj\D
 C:\Users\mpodl\Downloads\TrashMaze-main\TrashMaze-main\TrashMaze\TrashMaze\obj\Debug\TrashMaze.exe
 C:\Users\mpodl\Downloads\TrashMaze-main\TrashMaze-main\TrashMaze\TrashMaze\obj\Debug\TrashMaze.pdb
 C:\Users\mpodl\Downloads\TrashMaze-main\TrashMaze-main\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Window.resources
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\bin\Debug\TrashMaze.exe.config
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\bin\Debug\TrashMaze.exe
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\bin\Debug\TrashMaze.pdb
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.AssemblyReference.cache
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Window.resources
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Properties.Resources.resources
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.GenerateResource.cache
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.csproj.CoreCompileInputs.cache
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.exe
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.pdb

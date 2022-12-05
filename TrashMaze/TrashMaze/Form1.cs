@@ -14,6 +14,7 @@ namespace TrashMaze
     {
         bool goLeft, goRight, goUp, goDown;
         bool noLeft, noRight, noUp, noDown;
+        bool plastic, glass, paper;
         int playerSpeed = 5;
 
         Rectangle playerCollison;
@@ -21,7 +22,6 @@ namespace TrashMaze
         public Window()
         {
             InitializeComponent();
-            GameSetUp();
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -79,6 +79,23 @@ namespace TrashMaze
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
+            playerMovement();
+            playerCollison = new Rectangle(Player.Left, Player.Top, Player.Height, Player.Width);
+            wallsCollision(playerCollison);
+            trashCollision(playerCollison);
+            binCollision(playerCollison);
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox85_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void playerMovement()
+        {
             if (goLeft)
             {
                 Player.Left += playerSpeed;
@@ -95,32 +112,33 @@ namespace TrashMaze
             {
                 Player.Top += playerSpeed;
             }
-
-            playerCollison = new Rectangle(Player.Left, Player.Top, Player.Height, Player.Width);
+        }
+        private void wallsCollision(Rectangle y)
+        {
             foreach (Control x in this.Controls)
             {
                 Rectangle wallHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
                 if (x is PictureBox && (string)x.Tag == "wall")
                 {
-                    if (goLeft && playerCollison.IntersectsWith(wallHit))
+                    if (goLeft && y.IntersectsWith(wallHit))
                     {
                         Player.Left -= 4;
                         noLeft = true;
                         goLeft = false;
                     }
-                    if (goRight && playerCollison.IntersectsWith(wallHit))
+                    if (goRight && y.IntersectsWith(wallHit))
                     {
                         Player.Left += 4;
                         noRight = true;
                         goRight = false;
                     }
-                    if (goUp && playerCollison.IntersectsWith(wallHit))
+                    if (goUp && y.IntersectsWith(wallHit))
                     {
                         Player.Top += 4;
                         noUp = true;
                         goUp = false;
                     }
-                    if (goDown && playerCollison.IntersectsWith(wallHit))
+                    if (goDown && y.IntersectsWith(wallHit))
                     {
                         Player.Top -= 4;
                         noDown = true;
@@ -129,16 +147,53 @@ namespace TrashMaze
                 }
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void trashCollision(Rectangle y)
         {
-
+            foreach (Control x in this.Controls)
+            {
+                Rectangle trashHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
+                if (y.IntersectsWith(trashHit) && plastic == false && glass == false && paper == false)
+                {
+                    if (x is PictureBox && (string)x.Tag == "plastic")
+                    {
+                        x.Visible = false;
+                        plastic = true;
+                    }
+                    if (x is PictureBox && (string)x.Tag == "glass")
+                    {
+                        x.Visible = false;
+                        glass = true;
+                    }
+                    if (x is PictureBox && (string)x.Tag == "paper")
+                    {
+                        x.Visible = false;
+                        paper = true;
+                    }
+                }
+            }
         }
-
-        private void pictureBox85_Click(object sender, EventArgs e)
+        private void binCollision(Rectangle y)
         {
-
+            foreach (Control x in this.Controls)
+            {
+                Rectangle binHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
+                if (x is PictureBox && y.IntersectsWith(binHit))
+                {
+                    if ((string)x.Tag == "paperBin")
+                    {
+                        paper = false;
+                    }
+                    if ((string)x.Tag == "glassBin")
+                    {
+                        glass = false;
+                    }
+                    if ((string)x.Tag == "plasticBin")
+                    {
+                        plastic = false;
+                    }
+                }
+            }
         }
-
         private void RestartLevel()
         {
             goLeft = false;
@@ -148,10 +203,6 @@ namespace TrashMaze
 
             Player.Left = 68;
             Player.Top = 66;
-        }
-        private void GameSetUp()
-        {
-            
         }
         private void GameOver(string message)
         {
