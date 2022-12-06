@@ -76,6 +76,12 @@ namespace TrashMaze
 
         }
 
+        private void MouseClick_menu(object sender, MouseEventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
+        }
+
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
             PlayerMove player = new PlayerMove(Player.Left, Player.Top, Player.Width, Player.Height, goRight, goLeft, goDown, goUp);

@@ -118,11 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="out_door_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\out_door_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="block_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\block_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_restart1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_restart1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttom_menu_small2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttom_menu_small2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,7 +133,37 @@
   <data name="out_door_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\out_door_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="out_door_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\out_door_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttom_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttom_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttom_restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttom_restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttom_menu_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttom_menu_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_kontynuuj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_kontynuuj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttom_menu_small1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buttom_menu_small1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="block_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\block_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_instrukcja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_instrukcja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_wyjście" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_wyjście.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
