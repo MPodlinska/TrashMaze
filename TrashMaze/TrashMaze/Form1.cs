@@ -15,7 +15,6 @@ namespace TrashMaze
         bool goLeft, goRight, goUp, goDown;
         bool noLeft, noRight, noUp, noDown;
         bool plastic, glass, paper;
-        int playerSpeed = 5;
 
         Rectangle playerCollison;
 
@@ -79,7 +78,9 @@ namespace TrashMaze
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
-            playerMovement();
+            PlayerMove player = new PlayerMove(Player.Left, Player.Top, Player.Width, Player.Height, goRight, goLeft, goDown, goUp);
+            Player.Left = player.playerMovementX();
+            Player.Top = player.playerMovementY();
             playerCollison = new Rectangle(Player.Left, Player.Top, Player.Height, Player.Width);
             wallsCollision(playerCollison);
             trashCollision(playerCollison);
@@ -93,25 +94,6 @@ namespace TrashMaze
         private void pictureBox85_Click(object sender, EventArgs e)
         {
 
-        }
-        private void playerMovement()
-        {
-            if (goLeft)
-            {
-                Player.Left += playerSpeed;
-            }
-            if (goRight)
-            {
-                Player.Left -= playerSpeed;
-            }
-            if (goUp)
-            {
-                Player.Top -= playerSpeed;
-            }
-            if (goDown)
-            {
-                Player.Top += playerSpeed;
-            }
         }
         private void wallsCollision(Rectangle y)
         {
@@ -196,10 +178,7 @@ namespace TrashMaze
         }
         private void RestartLevel()
         {
-            goLeft = false;
-            goRight = false;
-            goUp = false;
-            goDown = false;
+            goLeft = goRight = goUp = goDown = false;
 
             Player.Left = 68;
             Player.Top = 66;
