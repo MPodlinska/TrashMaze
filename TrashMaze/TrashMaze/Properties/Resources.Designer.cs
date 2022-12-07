@@ -183,6 +183,16 @@ namespace TrashMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buttom_RESTART_small {
+            get {
+                object obj = ResourceManager.GetObject("buttom_RESTART_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap out_door_down {
             get {
                 object obj = ResourceManager.GetObject("out_door_down", resourceCulture);

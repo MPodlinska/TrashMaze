@@ -16,6 +16,7 @@ namespace TrashMaze
         bool noLeft, noRight, noUp, noDown;
         bool plastic, glass, paper;
 
+        int i = 3;
         Rectangle playerCollison;
 
         public Window()
@@ -82,6 +83,11 @@ namespace TrashMaze
             form.Show();
         }
 
+        private void MouseClick_Restart(object sender, MouseEventArgs e)
+        {
+            RestartLevel();
+        }
+
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
             PlayerMove player = new PlayerMove(Player.Left, Player.Top, Player.Width, Player.Height, goRight, goLeft, goDown, goUp);
@@ -91,6 +97,7 @@ namespace TrashMaze
             wallsCollision(playerCollison);
             trashCollision(playerCollison);
             binCollision(playerCollison);
+            exitLevel(playerCollison);
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -100,6 +107,17 @@ namespace TrashMaze
         private void pictureBox85_Click(object sender, EventArgs e)
         {
 
+        }
+        private void exitLevel(Rectangle y)
+        {
+            foreach (Control x in this.Controls)
+            {
+                Rectangle exit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
+                if(i==0 && x is PictureBox && (string)x.Tag == "exit" && y.IntersectsWith(exit))
+                {
+                    MessageBox.Show("Wygrałeś", "TrashMaze Info");
+                }
+            }
         }
         private void wallsCollision(Rectangle y)
         {
@@ -146,16 +164,19 @@ namespace TrashMaze
                     {
                         x.Visible = false;
                         plastic = true;
+                        i--;
                     }
                     if (x is PictureBox && (string)x.Tag == "glass")
                     {
                         x.Visible = false;
                         glass = true;
+                        i--;
                     }
                     if (x is PictureBox && (string)x.Tag == "paper")
                     {
                         x.Visible = false;
                         paper = true;
+                        i--;
                     }
                 }
             }
@@ -182,16 +203,12 @@ namespace TrashMaze
                 }
             }
         }
-        private void RestartLevel()
+        public void RestartLevel()
         {
             goLeft = goRight = goUp = goDown = false;
 
-            Player.Left = 68;
-            Player.Top = 66;
-        }
-        private void GameOver(string message)
-        {
-            MessageBox.Show(message, "TrashMaze Info");
+            Player.Left = 56;
+            Player.Top = 70;
         }
     }
 }

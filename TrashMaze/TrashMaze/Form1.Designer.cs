@@ -31,6 +31,8 @@ namespace TrashMaze
         {
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox95 = new System.Windows.Forms.PictureBox();
+            this.pictureBox94 = new System.Windows.Forms.PictureBox();
             this.pictureBox93 = new System.Windows.Forms.PictureBox();
             this.pictureBox92 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -126,7 +128,8 @@ namespace TrashMaze
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.pictureBox94 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -222,7 +225,6 @@ namespace TrashMaze
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -231,32 +233,52 @@ namespace TrashMaze
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.MainGameTimerEvent);
             // 
+            // pictureBox95
+            // 
+            this.pictureBox95.Image = global::TrashMaze.Properties.Resources.buttom_RESTART_small;
+            this.pictureBox95.Location = new System.Drawing.Point(956, 547);
+            this.pictureBox95.Name = "pictureBox95";
+            this.pictureBox95.Size = new System.Drawing.Size(277, 57);
+            this.pictureBox95.TabIndex = 101;
+            this.pictureBox95.TabStop = false;
+            this.pictureBox95.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_Restart);
+            // 
+            // pictureBox94
+            // 
+            this.pictureBox94.Image = global::TrashMaze.Properties.Resources.buttom_menu_small2;
+            this.pictureBox94.Location = new System.Drawing.Point(956, 493);
+            this.pictureBox94.Name = "pictureBox94";
+            this.pictureBox94.Size = new System.Drawing.Size(277, 57);
+            this.pictureBox94.TabIndex = 100;
+            this.pictureBox94.TabStop = false;
+            this.pictureBox94.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_menu);
+            // 
             // pictureBox93
             // 
-            this.pictureBox93.BackColor = System.Drawing.Color.SlateGray;
+            this.pictureBox93.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox93.Location = new System.Drawing.Point(84, 241);
             this.pictureBox93.Name = "pictureBox93";
-            this.pictureBox93.Size = new System.Drawing.Size(16, 34);
+            this.pictureBox93.Size = new System.Drawing.Size(20, 20);
             this.pictureBox93.TabIndex = 98;
             this.pictureBox93.TabStop = false;
             this.pictureBox93.Tag = "plastic";
             // 
             // pictureBox92
             // 
-            this.pictureBox92.BackColor = System.Drawing.Color.LightBlue;
+            this.pictureBox92.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox92.Location = new System.Drawing.Point(697, 67);
             this.pictureBox92.Name = "pictureBox92";
-            this.pictureBox92.Size = new System.Drawing.Size(16, 35);
+            this.pictureBox92.Size = new System.Drawing.Size(20, 20);
             this.pictureBox92.TabIndex = 97;
             this.pictureBox92.TabStop = false;
             this.pictureBox92.Tag = "glass";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightYellow;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox1.Location = new System.Drawing.Point(508, 507);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 36);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.TabIndex = 96;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "paper";
@@ -294,7 +316,7 @@ namespace TrashMaze
             // Player
             // 
             this.Player.BackColor = System.Drawing.Color.Orange;
-            this.Player.Location = new System.Drawing.Point(77, 61);
+            this.Player.Location = new System.Drawing.Point(77, 77);
             this.Player.Name = "Player";
             this.Player.Size = new System.Drawing.Size(42, 41);
             this.Player.TabIndex = 91;
@@ -308,6 +330,7 @@ namespace TrashMaze
             this.pictureBox88.Size = new System.Drawing.Size(62, 61);
             this.pictureBox88.TabIndex = 90;
             this.pictureBox88.TabStop = false;
+            this.pictureBox88.Tag = "exit";
             // 
             // pictureBox86
             // 
@@ -1267,22 +1290,13 @@ namespace TrashMaze
             this.pictureBox.TabStop = false;
             this.pictureBox.Tag = "wall";
             // 
-            // pictureBox94
-            // 
-            this.pictureBox94.Image = global::TrashMaze.Properties.Resources.buttom_menu_small2;
-            this.pictureBox94.Location = new System.Drawing.Point(957, 551);
-            this.pictureBox94.Name = "pictureBox94";
-            this.pictureBox94.Size = new System.Drawing.Size(277, 57);
-            this.pictureBox94.TabIndex = 100;
-            this.pictureBox94.TabStop = false;
-            this.pictureBox94.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_menu);
-            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1273, 614);
+            this.Controls.Add(this.pictureBox95);
             this.Controls.Add(this.pictureBox94);
             this.Controls.Add(this.pictureBox93);
             this.Controls.Add(this.pictureBox92);
@@ -1384,6 +1398,8 @@ namespace TrashMaze
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox92)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1479,7 +1495,6 @@ namespace TrashMaze
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1583,6 +1598,7 @@ namespace TrashMaze
         private System.Windows.Forms.PictureBox pictureBox92;
         private System.Windows.Forms.PictureBox pictureBox93;
         private System.Windows.Forms.PictureBox pictureBox94;
+        private System.Windows.Forms.PictureBox pictureBox95;
     }
 }
 
