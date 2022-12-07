@@ -255,7 +255,7 @@ namespace TrashMaze
             // 
             // pictureBox93
             // 
-            this.pictureBox93.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox93.BackColor = System.Drawing.Color.Yellow;
             this.pictureBox93.Location = new System.Drawing.Point(84, 241);
             this.pictureBox93.Name = "pictureBox93";
             this.pictureBox93.Size = new System.Drawing.Size(20, 20);
@@ -265,7 +265,7 @@ namespace TrashMaze
             // 
             // pictureBox92
             // 
-            this.pictureBox92.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox92.BackColor = System.Drawing.Color.Lime;
             this.pictureBox92.Location = new System.Drawing.Point(697, 67);
             this.pictureBox92.Name = "pictureBox92";
             this.pictureBox92.Size = new System.Drawing.Size(20, 20);
@@ -275,7 +275,7 @@ namespace TrashMaze
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.Blue;
             this.pictureBox1.Location = new System.Drawing.Point(508, 507);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
@@ -286,9 +286,11 @@ namespace TrashMaze
             // pictureBox91
             // 
             this.pictureBox91.BackColor = System.Drawing.Color.Green;
-            this.pictureBox91.Location = new System.Drawing.Point(678, 429);
+            this.pictureBox91.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pictureBox91.Image = global::TrashMaze.Properties.Resources.glass_Bin;
+            this.pictureBox91.Location = new System.Drawing.Point(673, 422);
             this.pictureBox91.Name = "pictureBox91";
-            this.pictureBox91.Size = new System.Drawing.Size(55, 54);
+            this.pictureBox91.Size = new System.Drawing.Size(60, 64);
             this.pictureBox91.TabIndex = 95;
             this.pictureBox91.TabStop = false;
             this.pictureBox91.Tag = "glassBin";
@@ -296,9 +298,10 @@ namespace TrashMaze
             // pictureBox90
             // 
             this.pictureBox90.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox90.Location = new System.Drawing.Point(556, 64);
+            this.pictureBox90.Image = global::TrashMaze.Properties.Resources.paper_Bin;
+            this.pictureBox90.Location = new System.Drawing.Point(551, 60);
             this.pictureBox90.Name = "pictureBox90";
-            this.pictureBox90.Size = new System.Drawing.Size(55, 54);
+            this.pictureBox90.Size = new System.Drawing.Size(60, 64);
             this.pictureBox90.TabIndex = 94;
             this.pictureBox90.TabStop = false;
             this.pictureBox90.Tag = "paperBin";
@@ -306,9 +309,10 @@ namespace TrashMaze
             // pictureBox89
             // 
             this.pictureBox89.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox89.Location = new System.Drawing.Point(66, 493);
+            this.pictureBox89.Image = global::TrashMaze.Properties.Resources.plastic_Bin;
+            this.pictureBox89.Location = new System.Drawing.Point(62, 486);
             this.pictureBox89.Name = "pictureBox89";
-            this.pictureBox89.Size = new System.Drawing.Size(55, 54);
+            this.pictureBox89.Size = new System.Drawing.Size(60, 64);
             this.pictureBox89.TabIndex = 93;
             this.pictureBox89.TabStop = false;
             this.pictureBox89.Tag = "plasticBin";

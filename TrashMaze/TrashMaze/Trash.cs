@@ -13,25 +13,5 @@ namespace TrashMaze
         string[] paperTab = new string[6] {"Karton","Tektura","Zeszyt", "Książka","Zadrukowane kartki","Gazeta" };
         string[] glassTab = new string[3] {"Butelka po piwie","Słoik po ogórkach","Uszczerbiona szklanka"};
         int i;
-        Random rand = new Random();
-        public Trash()
-        {
-        }
-        public string trashPla()
-        {
-            i = rand.Next(7);
-            return plasticTab[i];
-        }
-        public string trashPap()
-        {
-            i = rand.Next(7);
-            return paperTab[i];
-        }
-        public string trashGla()
-        {
-            i = rand.Next(4);
-            return glassTab[i];
-        }
-
     }
 }

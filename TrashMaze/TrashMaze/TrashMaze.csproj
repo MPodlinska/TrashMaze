@@ -143,5 +143,14 @@
   <ItemGroup>
     <None Include="Resources\buttom_RESTART_small.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plastic_Bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glass_Bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper_Bin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

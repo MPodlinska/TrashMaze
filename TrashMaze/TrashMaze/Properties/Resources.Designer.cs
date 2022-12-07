@@ -193,6 +193,16 @@ namespace TrashMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap glass_Bin {
+            get {
+                object obj = ResourceManager.GetObject("glass_Bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap out_door_down {
             get {
                 object obj = ResourceManager.GetObject("out_door_down", resourceCulture);
@@ -206,6 +216,26 @@ namespace TrashMaze.Properties {
         internal static System.Drawing.Bitmap out_door_up {
             get {
                 object obj = ResourceManager.GetObject("out_door_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paper_Bin {
+            get {
+                object obj = ResourceManager.GetObject("paper_Bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plastic_Bin {
+            get {
+                object obj = ResourceManager.GetObject("plastic_Bin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
