@@ -16,6 +16,9 @@ namespace TrashMaze
         bool noLeft, noRight, noUp, noDown;
         bool plastic, glass, paper;
 
+        int pointSeed, pointTree;
+        string collectedTrash;
+
         int i = 3;
         Rectangle playerCollison;
 
@@ -96,6 +99,7 @@ namespace TrashMaze
             playerCollison = new Rectangle(Player.Left, Player.Top, Player.Height, Player.Width);
             wallsCollision(playerCollison);
             trashCollision(playerCollison);
+            txtCollect.Text = "Zebrano: " + collectedTrash;
             binCollision(playerCollison);
             exitLevel(playerCollison);
         }
@@ -155,6 +159,7 @@ namespace TrashMaze
         }
         private void trashCollision(Rectangle y)
         {
+            Trash pickTrash = new Trash();
             foreach (Control x in this.Controls)
             {
                 Rectangle trashHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
@@ -164,18 +169,21 @@ namespace TrashMaze
                     {
                         x.Visible = false;
                         plastic = true;
+                        collectedTrash = pickTrash.plastic(i);
                         i--;
                     }
                     if (x is PictureBox && (string)x.Tag == "glass")
                     {
                         x.Visible = false;
                         glass = true;
+                        collectedTrash = pickTrash.glass(i);
                         i--;
                     }
                     if (x is PictureBox && (string)x.Tag == "paper")
                     {
                         x.Visible = false;
                         paper = true;
+                        collectedTrash = pickTrash.papers(i);
                         i--;
                     }
                 }
@@ -188,27 +196,51 @@ namespace TrashMaze
                 Rectangle binHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
                 if (x is PictureBox && y.IntersectsWith(binHit))
                 {
-                    if ((string)x.Tag == "paperBin")
+                    if ((string)x.Tag == "paperBin" && paper==true)
                     {
                         paper = false;
+                        collectedTrash = "Brak";
                     }
-                    if ((string)x.Tag == "glassBin")
+                    if ((string)x.Tag == "glassBin" && glass==true)
                     {
                         glass = false;
+                        collectedTrash = "Brak";
                     }
-                    if ((string)x.Tag == "plasticBin")
+                    if ((string)x.Tag == "plasticBin" && plastic==true)
                     {
                         plastic = false;
+                        collectedTrash = "Brak";
                     }
                 }
             }
         }
         public void RestartLevel()
         {
-            goLeft = goRight = goUp = goDown = false;
+            goLeft = false;
+            goRight = false;
+            goUp = false;
+            goDown = false;
 
             Player.Left = 56;
             Player.Top = 70;
+
+            collectedTrash = "Brak";
+            pointSeed = 1;
+            pointTree = 1;
+
+            i = 3; 
+
+            txtCollect.Text = "Zebrano: " + collectedTrash;
+            txtPointSeeds.Text = "Nasiona: " + pointSeed;
+            txtPointTree.Text = "Drzewa: " + pointTree;
+
+            foreach (Control x in this.Controls)
+            {
+                if(x is PictureBox && x.Visible == false)
+                {
+                    x.Visible = true;
+                }
+            }
         }
     }
 }

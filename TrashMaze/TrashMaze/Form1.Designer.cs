@@ -128,6 +128,9 @@ namespace TrashMaze
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.txtCollect = new System.Windows.Forms.Label();
+            this.txtPointTree = new System.Windows.Forms.Label();
+            this.txtPointSeeds = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
@@ -245,10 +248,11 @@ namespace TrashMaze
             // 
             // pictureBox94
             // 
+            this.pictureBox94.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox94.Image = global::TrashMaze.Properties.Resources.buttom_menu_small2;
             this.pictureBox94.Location = new System.Drawing.Point(956, 493);
             this.pictureBox94.Name = "pictureBox94";
-            this.pictureBox94.Size = new System.Drawing.Size(277, 57);
+            this.pictureBox94.Size = new System.Drawing.Size(279, 57);
             this.pictureBox94.TabIndex = 100;
             this.pictureBox94.TabStop = false;
             this.pictureBox94.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_menu);
@@ -1294,12 +1298,49 @@ namespace TrashMaze
             this.pictureBox.TabStop = false;
             this.pictureBox.Tag = "wall";
             // 
+            // txtCollect
+            // 
+            this.txtCollect.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtCollect.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCollect.Location = new System.Drawing.Point(952, 388);
+            this.txtCollect.Name = "txtCollect";
+            this.txtCollect.Size = new System.Drawing.Size(268, 86);
+            this.txtCollect.TabIndex = 102;
+            this.txtCollect.Text = "Zebrano: Brak";
+            // 
+            // txtPointTree
+            // 
+            this.txtPointTree.BackColor = System.Drawing.Color.LightGreen;
+            this.txtPointTree.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPointTree.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPointTree.Location = new System.Drawing.Point(953, 288);
+            this.txtPointTree.Name = "txtPointTree";
+            this.txtPointTree.Size = new System.Drawing.Size(267, 55);
+            this.txtPointTree.TabIndex = 103;
+            this.txtPointTree.Text = "Drzewa: 1";
+            this.txtPointTree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPointSeeds
+            // 
+            this.txtPointSeeds.BackColor = System.Drawing.Color.LightGreen;
+            this.txtPointSeeds.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPointSeeds.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPointSeeds.Location = new System.Drawing.Point(953, 217);
+            this.txtPointSeeds.Name = "txtPointSeeds";
+            this.txtPointSeeds.Size = new System.Drawing.Size(267, 55);
+            this.txtPointSeeds.TabIndex = 104;
+            this.txtPointSeeds.Text = "Nasiona: 1";
+            this.txtPointSeeds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1273, 614);
+            this.Controls.Add(this.txtPointSeeds);
+            this.Controls.Add(this.txtPointTree);
+            this.Controls.Add(this.txtCollect);
             this.Controls.Add(this.pictureBox95);
             this.Controls.Add(this.pictureBox94);
             this.Controls.Add(this.pictureBox93);
@@ -1603,6 +1644,9 @@ namespace TrashMaze
         private System.Windows.Forms.PictureBox pictureBox93;
         private System.Windows.Forms.PictureBox pictureBox94;
         private System.Windows.Forms.PictureBox pictureBox95;
+        private System.Windows.Forms.Label txtCollect;
+        private System.Windows.Forms.Label txtPointTree;
+        private System.Windows.Forms.Label txtPointSeeds;
     }
 }
 
