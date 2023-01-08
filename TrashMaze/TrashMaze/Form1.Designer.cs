@@ -31,6 +31,11 @@ namespace TrashMaze
         {
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.txtCollect = new System.Windows.Forms.Label();
+            this.txtPointTree = new System.Windows.Forms.Label();
+            this.txtPointSeeds = new System.Windows.Forms.Label();
+            this.TimeGame = new System.Windows.Forms.Label();
+            this.pictureBox96 = new System.Windows.Forms.PictureBox();
             this.pictureBox95 = new System.Windows.Forms.PictureBox();
             this.pictureBox94 = new System.Windows.Forms.PictureBox();
             this.pictureBox93 = new System.Windows.Forms.PictureBox();
@@ -128,9 +133,8 @@ namespace TrashMaze
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.txtCollect = new System.Windows.Forms.Label();
-            this.txtPointTree = new System.Windows.Forms.Label();
-            this.txtPointSeeds = new System.Windows.Forms.Label();
+            this.txtTrash = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).BeginInit();
@@ -236,6 +240,65 @@ namespace TrashMaze
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.MainGameTimerEvent);
             // 
+            // txtCollect
+            // 
+            this.txtCollect.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCollect.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtCollect.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtCollect.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCollect.Location = new System.Drawing.Point(951, 317);
+            this.txtCollect.Name = "txtCollect";
+            this.txtCollect.Size = new System.Drawing.Size(268, 86);
+            this.txtCollect.TabIndex = 102;
+            this.txtCollect.Text = "Zebrano: Brak";
+            // 
+            // txtPointTree
+            // 
+            this.txtPointTree.BackColor = System.Drawing.Color.LightGreen;
+            this.txtPointTree.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPointTree.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPointTree.Location = new System.Drawing.Point(952, 249);
+            this.txtPointTree.Name = "txtPointTree";
+            this.txtPointTree.Size = new System.Drawing.Size(267, 55);
+            this.txtPointTree.TabIndex = 103;
+            this.txtPointTree.Text = "Drzewa: 1";
+            this.txtPointTree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtPointSeeds
+            // 
+            this.txtPointSeeds.BackColor = System.Drawing.Color.LightGreen;
+            this.txtPointSeeds.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtPointSeeds.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPointSeeds.Location = new System.Drawing.Point(952, 182);
+            this.txtPointSeeds.Name = "txtPointSeeds";
+            this.txtPointSeeds.Size = new System.Drawing.Size(267, 55);
+            this.txtPointSeeds.TabIndex = 104;
+            this.txtPointSeeds.Text = "Nasiona: 1";
+            this.txtPointSeeds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TimeGame
+            // 
+            this.TimeGame.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TimeGame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.TimeGame.Font = new System.Drawing.Font("Arial Rounded MT Bold", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeGame.Location = new System.Drawing.Point(952, 28);
+            this.TimeGame.Name = "TimeGame";
+            this.TimeGame.Size = new System.Drawing.Size(267, 58);
+            this.TimeGame.TabIndex = 105;
+            this.TimeGame.Text = "00:00";
+            this.TimeGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox96
+            // 
+            this.pictureBox96.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox96.Image = global::TrashMaze.Properties.Resources.buttom_START_small;
+            this.pictureBox96.Location = new System.Drawing.Point(956, 430);
+            this.pictureBox96.Name = "pictureBox96";
+            this.pictureBox96.Size = new System.Drawing.Size(279, 57);
+            this.pictureBox96.TabIndex = 106;
+            this.pictureBox96.TabStop = false;
+            this.pictureBox96.Click += new System.EventHandler(this.startClick);
+            // 
             // pictureBox95
             // 
             this.pictureBox95.Image = global::TrashMaze.Properties.Resources.buttom_RESTART_small;
@@ -250,7 +313,7 @@ namespace TrashMaze
             // 
             this.pictureBox94.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox94.Image = global::TrashMaze.Properties.Resources.buttom_menu_small2;
-            this.pictureBox94.Location = new System.Drawing.Point(956, 493);
+            this.pictureBox94.Location = new System.Drawing.Point(956, 490);
             this.pictureBox94.Name = "pictureBox94";
             this.pictureBox94.Size = new System.Drawing.Size(279, 57);
             this.pictureBox94.TabIndex = 100;
@@ -289,34 +352,42 @@ namespace TrashMaze
             // 
             // pictureBox91
             // 
-            this.pictureBox91.BackColor = System.Drawing.Color.Green;
+            this.pictureBox91.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox91.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pictureBox91.Image = global::TrashMaze.Properties.Resources.glass_Bin;
             this.pictureBox91.Location = new System.Drawing.Point(673, 422);
             this.pictureBox91.Name = "pictureBox91";
             this.pictureBox91.Size = new System.Drawing.Size(60, 64);
+            this.pictureBox91.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox91.TabIndex = 95;
             this.pictureBox91.TabStop = false;
             this.pictureBox91.Tag = "glassBin";
             // 
             // pictureBox90
             // 
-            this.pictureBox90.BackColor = System.Drawing.Color.Blue;
+            this.pictureBox90.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox90.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox90.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox90.ErrorImage = global::TrashMaze.Properties.Resources.paper_Bin;
             this.pictureBox90.Image = global::TrashMaze.Properties.Resources.paper_Bin;
-            this.pictureBox90.Location = new System.Drawing.Point(551, 60);
+            this.pictureBox90.ImageLocation = "";
+            this.pictureBox90.Location = new System.Drawing.Point(553, 56);
+            this.pictureBox90.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox90.Name = "pictureBox90";
             this.pictureBox90.Size = new System.Drawing.Size(60, 64);
+            this.pictureBox90.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox90.TabIndex = 94;
             this.pictureBox90.TabStop = false;
             this.pictureBox90.Tag = "paperBin";
             // 
             // pictureBox89
             // 
-            this.pictureBox89.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBox89.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox89.Image = global::TrashMaze.Properties.Resources.plastic_Bin;
             this.pictureBox89.Location = new System.Drawing.Point(62, 486);
             this.pictureBox89.Name = "pictureBox89";
-            this.pictureBox89.Size = new System.Drawing.Size(60, 64);
+            this.pictureBox89.Size = new System.Drawing.Size(60, 61);
+            this.pictureBox89.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox89.TabIndex = 93;
             this.pictureBox89.TabStop = false;
             this.pictureBox89.Tag = "plasticBin";
@@ -1298,39 +1369,17 @@ namespace TrashMaze
             this.pictureBox.TabStop = false;
             this.pictureBox.Tag = "wall";
             // 
-            // txtCollect
+            // txtTrash
             // 
-            this.txtCollect.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtCollect.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCollect.Location = new System.Drawing.Point(952, 388);
-            this.txtCollect.Name = "txtCollect";
-            this.txtCollect.Size = new System.Drawing.Size(268, 86);
-            this.txtCollect.TabIndex = 102;
-            this.txtCollect.Text = "Zebrano: Brak";
-            // 
-            // txtPointTree
-            // 
-            this.txtPointTree.BackColor = System.Drawing.Color.LightGreen;
-            this.txtPointTree.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtPointTree.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPointTree.Location = new System.Drawing.Point(953, 288);
-            this.txtPointTree.Name = "txtPointTree";
-            this.txtPointTree.Size = new System.Drawing.Size(267, 55);
-            this.txtPointTree.TabIndex = 103;
-            this.txtPointTree.Text = "Drzewa: 1";
-            this.txtPointTree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPointSeeds
-            // 
-            this.txtPointSeeds.BackColor = System.Drawing.Color.LightGreen;
-            this.txtPointSeeds.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtPointSeeds.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPointSeeds.Location = new System.Drawing.Point(953, 217);
-            this.txtPointSeeds.Name = "txtPointSeeds";
-            this.txtPointSeeds.Size = new System.Drawing.Size(267, 55);
-            this.txtPointSeeds.TabIndex = 104;
-            this.txtPointSeeds.Text = "Nasiona: 1";
-            this.txtPointSeeds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtTrash.BackColor = System.Drawing.Color.LightGreen;
+            this.txtTrash.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtTrash.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrash.Location = new System.Drawing.Point(952, 112);
+            this.txtTrash.Name = "txtTrash";
+            this.txtTrash.Size = new System.Drawing.Size(267, 55);
+            this.txtTrash.TabIndex = 107;
+            this.txtTrash.Text = "Śmieci: 1";
+            this.txtTrash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Window
             // 
@@ -1338,6 +1387,9 @@ namespace TrashMaze
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1273, 614);
+            this.Controls.Add(this.txtTrash);
+            this.Controls.Add(this.pictureBox96);
+            this.Controls.Add(this.TimeGame);
             this.Controls.Add(this.txtPointSeeds);
             this.Controls.Add(this.txtPointTree);
             this.Controls.Add(this.txtCollect);
@@ -1439,10 +1491,12 @@ namespace TrashMaze
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox);
             this.Name = "Window";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TrashMaze-Poziom1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox96)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox95)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox94)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox93)).EndInit();
@@ -1647,6 +1701,9 @@ namespace TrashMaze
         private System.Windows.Forms.Label txtCollect;
         private System.Windows.Forms.Label txtPointTree;
         private System.Windows.Forms.Label txtPointSeeds;
+        private System.Windows.Forms.Label TimeGame;
+        private System.Windows.Forms.PictureBox pictureBox96;
+        private System.Windows.Forms.Label txtTrash;
     }
 }
 

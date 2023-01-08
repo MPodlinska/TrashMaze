@@ -16,7 +16,9 @@ namespace TrashMaze
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Window());
+            Window l1 = new Window();
+            l1.Show();
+            Application.Run();
         }
     }
 }

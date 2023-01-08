@@ -61,7 +61,6 @@
     <Compile Include="PlayerMove.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timer.cs" />
     <Compile Include="Trash.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -151,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\paper_Bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttom_START_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

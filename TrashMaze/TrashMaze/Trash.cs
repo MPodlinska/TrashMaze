@@ -11,11 +11,10 @@ namespace TrashMaze
     {
         public Trash() { }
 
-        string[] plasticTab = new string[6] {"Karton po mleku", "Karton do soku","Butelka po wodzie", "Puszka po konserwie", "Puszka po Coli","Aluminiowa folia"};
-        string[] paperTab = new string[6] {"Karton","Tektura","Zeszyt", "Książka","Zadrukowane kartki","Gazeta" };
-        string[] glassTab = new string[3] {"Butelka po piwie","Słoik po ogórkach","Uszczerbiona szklanka"};
-        int i;
-
+        string[] plasticTab = new string[8] {"Karton po mleku", "Karton po soku","Butelka po wodzie", "Puszka po konserwie", "Puszka po Coli","Aluminiowa folia", "Opakowanie po jogurcie", "Butelka po soku"};
+        string[] paperTab = new string[8] {"Karton","Tektura","Zeszyt", "Książka","Zadrukowane kartki","Gazeta","Kartka", "Komiks"};
+        string[] glassTab = new string[5] {"Butelka po piwie", "Butelka po winie", "Uszczerbiona szklanka", "Słoik po ogórkach", "Słoik po burakach" };
+        
         public string plastic (int i)
         {
             return plasticTab[i];
