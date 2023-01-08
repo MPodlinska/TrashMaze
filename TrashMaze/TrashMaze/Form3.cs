@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace TrashMaze
 {
+    /// <summary>
+    /// instrukcja gry TrashMaze
+    /// </summary>
     public partial class Form3 : Form
     {
         /// <summary>
@@ -27,6 +30,11 @@ namespace TrashMaze
         private void backClick(object sender, MouseEventArgs e)
         {
             this.Close();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

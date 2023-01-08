@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TrashMaze
 {
+    /// <summary>
+    /// klasa opisująca elementy zbierane przez gracza
+    /// </summary>
     public class Trash
     {
         /// <summary>

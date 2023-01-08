@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TrashMaze
 {
+    /// <summary>
+    /// klasa opisująca ruch gracza
+    /// </summary>
     public class PlayerMove
     {
         /// <summary>

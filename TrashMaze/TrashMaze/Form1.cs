@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace TrashMaze
 {
+    /// <summary>
+    /// poziom 1 gry TrashMaze
+    /// </summary>
     public partial class Window : Form
     {
         /// <summary>
