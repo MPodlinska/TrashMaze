@@ -12,30 +12,83 @@ namespace TrashMaze
 {
     public partial class Window : Form
     {
-        bool goLeft, goRight, goUp, goDown;
+        /// <summary>
+        /// zmienne potwierdzające wybór kierunku
+        /// </summary>
+        private bool goLeft, goRight, goUp, goDown;
+        /// <summary>
+        /// zmienne zaprzeczające wyborowi kierunku, zabezpieczenie
+        /// </summary>
         bool noLeft, noRight, noUp, noDown;
+        /// <summary>
+        /// zmienne okreslające rodzaj odpadu zebranego i aktualnie posiadanego przez gracza
+        /// </summary>
         bool plastic, glass, paper;
-
+        /// <summary>
+        /// zmienna okreslająca czy gra została rozpoczęta
+        /// </summary>
         bool starts = false;
+        /// <summary>
+        /// zmienna określająca czy ostatnia szansa przejścia poziomu
+        /// </summary>
         bool lastChance = false;
-
-        int pointSeed = 1;
-        int pointTree = 1;
+        /// <summary>
+        ///  punkty w postaci nasion
+        /// </summary>
+        public int pointSeed = 1;
+        /// <summary>
+        ///  punkty w postaci drzew
+        /// </summary>
+        public int pointTree = 1;
+        /// <summary>
+        /// zmienna przechowująca odpad danego rodzaju odpadów
+        /// </summary>
         string collectedTrash;
-
+        /// <summary>
+        /// ilość odpadów na planszy do zebrania
+        /// </summary>
         int i = 3;
-
+        /// <summary>
+        /// konstruktor timera
+        /// </summary>
         Timer t = new Timer();
+        /// <summary>
+        /// zmienna określająca ilość minut
+        /// </summary>
         int m = 0;
+        /// <summary>
+        /// zmienna określająca ilość sekund
+        /// </summary>
         int s = 0;
-
+        /// <summary>
+        /// konstruktor gracza przechowujący rozmiar i położenie
+        /// </summary>
         Rectangle playerCollison;
-
+        /// <summary>
+        /// zmienna globana dostepu do klasy - przeazywanie wartości pomiędzy poziomami
+        /// </summary>
+        public static Window instance;
+        /// <summary>
+        /// zmienna sprawdzająca czy koniec
+        /// </summary>
+        private bool koniec = false;
+        /// <summary>
+        /// zmienna sprawdzająca czy punkty zostały przyznane
+        /// </summary>
+        private bool pointsGot = false;
+        /// <summary>
+        /// inicjalizacja komponentu - poziom 1
+        /// </summary>
         public Window()
         {
             InitializeComponent();
+            instance = this;
         }
-
+        /// <summary>
+        /// działanie przycisków w,a,s,d - poruszanie gracza odblokowane
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (starts == true)
@@ -66,7 +119,11 @@ namespace TrashMaze
                 }
             }
         }
-
+        /// <summary>
+        /// działanie przyciusków w,a,s,d - poruszanie gracza zablokowane
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
@@ -86,30 +143,43 @@ namespace TrashMaze
                 goDown = false;
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// naciśnięcie intrukcji gry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MouseClick_menu(object sender, MouseEventArgs e)
         {
-            
+            Form3 menu = new Form3();
+            menu.Show();
         }
-
+        /// <summary>
+        /// naciśnięcie startu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startClick(object sender, EventArgs e)
         {
             t.Stop();
             if(starts == false)
             {
                 starts = true;
-                m = 1;
-                s = 20;
+                m = 0;
+                s = 31;
                 t.Interval = 1000;
                 t.Tick += new EventHandler(this.timer_Tick);
                 t.Start();
             }
         }
+        /// <summary>
+        /// odliczanie czasu gry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer_Tick(object sender, EventArgs e)
         {
 
@@ -132,7 +202,7 @@ namespace TrashMaze
             }
             if(lastChance == true && i > 0 && m == 0 && s == 0 )
             {
-                TimeGame.Text = "Przegrałeś! Restart?";
+                TimeGame.Text = "Przegrałeś!";
                 t.Stop();
                 lose();
             }
@@ -143,7 +213,11 @@ namespace TrashMaze
             }
             txtPointTree.Text = "Drzewa: " + pointTree;
         }
-
+        /// <summary>
+        /// naciśnięcie restaru gry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MouseClick_Restart(object sender, MouseEventArgs e)
         {
             t.Stop();
@@ -152,10 +226,14 @@ namespace TrashMaze
                 RestartLevel();
             }
         }
-
+        /// <summary>
+        /// główne eventy gry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
-            PlayerMove player = new PlayerMove(Player.Left, Player.Top, Player.Width, Player.Height, goRight, goLeft, goDown, goUp);
+            PlayerMove player = new PlayerMove(Player.Left, Player.Top, goRight, goLeft, goDown, goUp);
             Player.Left = player.playerMovementX();
             Player.Top = player.playerMovementY();
             playerCollison = new Rectangle(Player.Left, Player.Top, Player.Height, Player.Width);
@@ -164,9 +242,14 @@ namespace TrashMaze
             txtCollect.Text = "Zebrano: " + collectedTrash;
             txtTrash.Text = "Śmieci: " + i;
             binCollision(playerCollison);
+            if(i==0 && pointsGot==false)
+            {
+                pointsGot = true;
+                pointTree=pointTree+pointSeed;
+                pointSeed = pointSeed - pointSeed + 1;
+            }
             exitLevel(playerCollison);
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -176,15 +259,18 @@ namespace TrashMaze
         {
 
         }
-
+        /// <summary>
+        /// zakończenie poziomu
+        /// </summary>
+        /// <param name="y"></param>
         private void exitLevel(Rectangle y)
         {
             foreach (Control x in this.Controls)
             {
                 Rectangle exit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
-                if(i==0 && x is PictureBox && (string)x.Tag == "exit" && y.IntersectsWith(exit))
+                if(i==0 && x is PictureBox && (string)x.Tag == "exit" && y.IntersectsWith(exit) && koniec==false)
                 {
-                    i = 1;
+                    koniec = true;
                     t.Stop();
                     starts = false;
                     if (MessageBox.Show("Wygrałeś! Kontynuuj gre i kliknij tak, lub zakończ i kliknij nie!", "Wygrana", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -200,6 +286,10 @@ namespace TrashMaze
                 }
             }
         }
+        /// <summary>
+        /// metoda kolizji ze ścianamu
+        /// </summary>
+        /// <param name="y"></param>
         private void wallsCollision(Rectangle y)
         {
             foreach (Control x in this.Controls)
@@ -234,6 +324,10 @@ namespace TrashMaze
                 }
             }
         }
+        /// <summary>
+        /// metoda kolizji z odpadami
+        /// </summary>
+        /// <param name="y"></param>
         private void trashCollision(Rectangle y)
         {
             Trash pickTrash = new Trash();
@@ -242,19 +336,19 @@ namespace TrashMaze
                 Rectangle trashHit = new Rectangle(x.Left, x.Top, x.Width, x.Height);
                 if (y.IntersectsWith(trashHit) && plastic == false && glass == false && paper == false)
                 {
-                    if (x is PictureBox && (string)x.Tag == "plastic")
+                    if (x is PictureBox && (string)x.Tag == "plastic" && x.Visible==true)
                     {
                         x.Visible = false;
                         plastic = true;
                         collectedTrash = pickTrash.plastic(i);
                     }
-                    if (x is PictureBox && (string)x.Tag == "glass")
+                    if (x is PictureBox && (string)x.Tag == "glass" && x.Visible == true)
                     {
                         x.Visible = false;
                         glass = true;
                         collectedTrash = pickTrash.glass(i); 
                     }
-                    if (x is PictureBox && (string)x.Tag == "paper")
+                    if (x is PictureBox && (string)x.Tag == "paper" && x.Visible == true)
                     {
                         x.Visible = false;
                         paper = true;
@@ -263,6 +357,10 @@ namespace TrashMaze
                 }
             }
         }
+        /// <summary>
+        /// metoda kolizji z śmietnikami
+        /// </summary>
+        /// <param name="y"></param>
         private void binCollision(Rectangle y)
         {
             foreach (Control x in this.Controls)
@@ -291,6 +389,9 @@ namespace TrashMaze
                 }
             }
         }
+        /// <summary>
+        /// metoda restartu
+        /// </summary>
         public void RestartLevel()
         {
             goLeft = false;
@@ -318,10 +419,13 @@ namespace TrashMaze
                     x.Visible = true;
                 }
             }
-            m = 1;
-            s = 21;
+            m = 0;
+            s = 31;
             t.Start();
         }
+        /// <summary>
+        /// metoda w razie pzegranej poziomu
+        /// </summary>
         private void lose()
         {
             for (int j = 1; j > 0; j--)

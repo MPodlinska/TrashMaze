@@ -28,3 +28,4 @@ C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\Tras
 C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.exe
 C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.pdb
 C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Poziom2.resources
+C:\Users\mpodl\OneDrive\Pulpit\JPWP\TrashMaze\TrashMaze\TrashMaze\obj\Debug\TrashMaze.Form3.resources

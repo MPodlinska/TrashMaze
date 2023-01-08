@@ -8,26 +8,44 @@ namespace TrashMaze
 {
     public class PlayerMove
     {
+        /// <summary>
+        /// zmienna określająca położenie X gracza
+        /// </summary>
         int playerX;
+        /// <summary>
+        /// zmienna określająca położenie Y gracza
+        /// </summary>
         int playerY;
-        float playerWidth;
-        float playerHeight;
-
+        /// <summary>
+        /// prędkość gracza
+        /// </summary>
         static int speed = 5;
-
+        /// <summary>
+        /// zmienne potwierdzające wybór kierunku
+        /// </summary>
         bool goRight, goLeft, goUp, goDown;
-
-        public PlayerMove(int pX, int pY, float pW, float pH, bool R, bool L, bool U, bool D)
+        /// <summary>
+        /// konstruktor gracza
+        /// </summary>
+        /// <param name="pX"></param>
+        /// <param name="pY"></param>
+        /// <param name="R"></param>
+        /// <param name="L"></param>
+        /// <param name="U"></param>
+        /// <param name="D"></param>
+        public PlayerMove(int pX, int pY, bool R, bool L, bool U, bool D)
         {
             this.playerX = pX;
             this.playerY = pY;
-            this.playerWidth = pW;
-            this.playerHeight = pH;
             this.goRight = R;
             this.goLeft = L;
             this.goUp = U;
             this.goDown = D;
         }
+        /// <summary>
+        /// metoda zwracająca nowe położenie X gracza
+        /// </summary>
+        /// <returns></returns>
         public int playerMovementX()
         {
             if (goLeft)
@@ -40,7 +58,10 @@ namespace TrashMaze
             }
             return playerX;
         }
-
+        /// <summary>
+        /// metoda zwracajaca nowe położenie Y gracza
+        /// </summary>
+        /// <returns></returns>
         public int playerMovementY()
         {
             if (goUp)
