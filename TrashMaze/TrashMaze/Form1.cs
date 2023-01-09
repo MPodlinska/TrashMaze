@@ -11,76 +11,80 @@ using System.Windows.Forms;
 namespace TrashMaze
 {
     /// <summary>
-    /// poziom 1 gry TrashMaze
+    /// Poziom 1 gry TrashMaze
     /// </summary>
     public partial class Window : Form
     {
         /// <summary>
-        /// zmienne potwierdzające wybór kierunku
+        /// Zmienne potwierdzające wybór kierunku
         /// </summary>
         private bool goLeft, goRight, goUp, goDown;
         /// <summary>
-        /// zmienne zaprzeczające wyborowi kierunku, zabezpieczenie
+        /// Zmienne zaprzeczające wyborowi kierunku, zabezpieczenie
         /// </summary>
         bool noLeft, noRight, noUp, noDown;
         /// <summary>
-        /// zmienne okreslające rodzaj odpadu zebranego i aktualnie posiadanego przez gracza
+        /// Zmienne okreslające rodzaj odpadu zebranego i aktualnie posiadanego przez gracza
         /// </summary>
         bool plastic, glass, paper;
         /// <summary>
-        /// zmienna okreslająca czy gra została rozpoczęta
+        /// Zmienna okreslająca czy gra została rozpoczęta
         /// </summary>
         bool starts = false;
         /// <summary>
-        /// zmienna określająca czy ostatnia szansa przejścia poziomu
+        /// Zmienna określająca czy ostatnia szansa przejścia poziomu
         /// </summary>
         bool lastChance = false;
         /// <summary>
-        ///  punkty w postaci nasion
+        ///  Punkty w postaci nasion
         /// </summary>
         public int pointSeed = 1;
         /// <summary>
-        ///  punkty w postaci drzew
+        ///  Punkty w postaci drzew
         /// </summary>
         public int pointTree = 1;
         /// <summary>
-        /// zmienna przechowująca odpad danego rodzaju odpadów
+        /// Zmienna przechowująca odpad danego rodzaju odpadów
         /// </summary>
         string collectedTrash;
         /// <summary>
-        /// ilość odpadów na planszy do zebrania
+        /// Ilość odpadów na planszy do zebrania
         /// </summary>
         int i = 3;
         /// <summary>
-        /// konstruktor timera
+        /// Konstruktor timera
         /// </summary>
         Timer t = new Timer();
         /// <summary>
-        /// zmienna określająca ilość minut
+        /// Zmienna określająca ilość minut
         /// </summary>
         int m = 0;
         /// <summary>
-        /// zmienna określająca ilość sekund
+        /// Zmienna określająca ilość sekund
         /// </summary>
         int s = 0;
         /// <summary>
-        /// konstruktor gracza przechowujący rozmiar i położenie
+        /// Konstruktor gracza przechowujący rozmiar i położenie
         /// </summary>
         Rectangle playerCollison;
         /// <summary>
-        /// zmienna globana dostepu do klasy - przeazywanie wartości pomiędzy poziomami
+        /// Zmienna globana dostepu do klasy - przeazywanie wartości pomiędzy poziomami
         /// </summary>
         public static Window instance;
         /// <summary>
-        /// zmienna sprawdzająca czy koniec
+        /// Zmienna sprawdzająca czy koniec
         /// </summary>
         private bool koniec = false;
         /// <summary>
-        /// zmienna sprawdzająca czy punkty zostały przyznane
+        /// Zmienna sprawdzająca czy punkty zostały przyznane
         /// </summary>
         private bool pointsGot = false;
         /// <summary>
-        /// inicjalizacja komponentu - poziom 1
+        /// Zmienna sprawdzajáca czy restart
+        /// </summary>
+        private bool restart = false;
+        /// <summary>
+        /// Inicjalizacja komponentu - poziom 1
         /// </summary>
         public Window()
         {
@@ -88,7 +92,7 @@ namespace TrashMaze
             instance = this;
         }
         /// <summary>
-        /// działanie przycisków w,a,s,d - poruszanie gracza odblokowane
+        /// Działanie przycisków w,a,s,d - poruszanie gracza odblokowane
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -123,7 +127,7 @@ namespace TrashMaze
             }
         }
         /// <summary>
-        /// działanie przyciusków w,a,s,d - poruszanie gracza zablokowane
+        /// Działanie przycisków w,a,s,d - poruszanie gracza zablokowane
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -151,7 +155,7 @@ namespace TrashMaze
 
         }
         /// <summary>
-        /// naciśnięcie intrukcji gry
+        /// Naciśnięcie intrukcji gry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -161,7 +165,7 @@ namespace TrashMaze
             menu.Show();
         }
         /// <summary>
-        /// naciśnięcie startu
+        /// Naciśnięcie startu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -172,14 +176,14 @@ namespace TrashMaze
             {
                 starts = true;
                 m = 0;
-                s = 31;
+                s = 46;
                 t.Interval = 1000;
                 t.Tick += new EventHandler(this.timer_Tick);
                 t.Start();
             }
         }
         /// <summary>
-        /// odliczanie czasu gry
+        /// Odliczanie czasu gry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -217,7 +221,7 @@ namespace TrashMaze
             txtPointTree.Text = "Drzewa: " + pointTree;
         }
         /// <summary>
-        /// naciśnięcie restaru gry
+        /// Naciśnięcie restaru gry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -226,11 +230,11 @@ namespace TrashMaze
             t.Stop();
             if (starts == true)
             {
-                RestartLevel();
+                restart = true;
             }
         }
         /// <summary>
-        /// główne eventy gry
+        /// Główne eventy gry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -245,6 +249,11 @@ namespace TrashMaze
             txtCollect.Text = "Zebrano: " + collectedTrash;
             txtTrash.Text = "Śmieci: " + i;
             binCollision(playerCollison);
+            if (restart == true)
+            {
+                restart = false;
+                RestartLevel();
+            }
             if(i==0 && pointsGot==false)
             {
                 pointsGot = true;
@@ -263,9 +272,9 @@ namespace TrashMaze
 
         }
         /// <summary>
-        /// zakończenie poziomu
+        /// Zakończenie poziomu
         /// </summary>
-        /// <param name="y"></param>
+        /// <param name="y"> Konstruktor wyjścia przechowujacy jego połozenie i wielkość</param>
         private void exitLevel(Rectangle y)
         {
             foreach (Control x in this.Controls)
@@ -290,9 +299,9 @@ namespace TrashMaze
             }
         }
         /// <summary>
-        /// metoda kolizji ze ścianamu
+        /// Metoda kolizji ze ścianamu
         /// </summary>
-        /// <param name="y"></param>
+        /// <param name="y">Konstruktor gracza przechowujacy jego połozenie i wielkość</param>
         private void wallsCollision(Rectangle y)
         {
             foreach (Control x in this.Controls)
@@ -328,9 +337,9 @@ namespace TrashMaze
             }
         }
         /// <summary>
-        /// metoda kolizji z odpadami
+        /// Metoda kolizji z odpadami
         /// </summary>
-        /// <param name="y"></param>
+        /// <param name="y">Konstruktor gracza przechowujacy jego połozenie i wielkość</param>
         private void trashCollision(Rectangle y)
         {
             Trash pickTrash = new Trash();
@@ -361,9 +370,9 @@ namespace TrashMaze
             }
         }
         /// <summary>
-        /// metoda kolizji z śmietnikami
+        /// Metoda kolizji z śmietnikami
         /// </summary>
-        /// <param name="y"></param>
+        /// <param name="y">Konstruktor gracza przechowujacy jego połozenie i wielkość</param>
         private void binCollision(Rectangle y)
         {
             foreach (Control x in this.Controls)
@@ -393,7 +402,7 @@ namespace TrashMaze
             }
         }
         /// <summary>
-        /// metoda restartu
+        /// Metoda restartu
         /// </summary>
         public void RestartLevel()
         {
@@ -401,6 +410,10 @@ namespace TrashMaze
             goRight = false;
             goUp = false;
             goDown = false;
+
+            plastic = false;
+            glass = false;
+            paper = false;
 
             Player.Left = 56;
             Player.Top = 70;
@@ -423,11 +436,11 @@ namespace TrashMaze
                 }
             }
             m = 0;
-            s = 31;
+            s = 46;
             t.Start();
         }
         /// <summary>
-        /// metoda w razie pzegranej poziomu
+        /// Metoda w razie pzegranej poziomu
         /// </summary>
         private void lose()
         {

@@ -11,19 +11,19 @@ using System.Windows.Forms;
 namespace TrashMaze
 {
     /// <summary>
-    /// instrukcja gry TrashMaze
+    /// Klasa instrukcji gry TrashMaze
     /// </summary>
     public partial class Form3 : Form
     {
         /// <summary>
-        /// inicjalizacja komponentu
+        /// Inicjalizacja komponentu
         /// </summary>
         public Form3()
         {
             InitializeComponent();
         }
         /// <summary>
-        /// przycisk do kontynuuowania gry
+        /// Przycisk do kontynuuowania gry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

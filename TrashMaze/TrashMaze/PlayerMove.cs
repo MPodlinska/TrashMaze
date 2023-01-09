@@ -7,35 +7,35 @@ using System.Threading.Tasks;
 namespace TrashMaze
 {
     /// <summary>
-    /// klasa opisująca ruch gracza
+    /// Klasa opisująca ruch gracza
     /// </summary>
     public class PlayerMove
     {
         /// <summary>
-        /// zmienna określająca położenie X gracza
+        /// Zmienna określająca położenie X gracza
         /// </summary>
         int playerX;
         /// <summary>
-        /// zmienna określająca położenie Y gracza
+        /// Zmienna określająca położenie Y gracza
         /// </summary>
         int playerY;
         /// <summary>
-        /// prędkość gracza
+        /// Prędkość gracza
         /// </summary>
         static int speed = 5;
         /// <summary>
-        /// zmienne potwierdzające wybór kierunku
+        /// Zmienne potwierdzające wybór kierunku
         /// </summary>
         bool goRight, goLeft, goUp, goDown;
         /// <summary>
-        /// konstruktor gracza
+        /// Konstruktor gracza
         /// </summary>
-        /// <param name="pX"></param>
-        /// <param name="pY"></param>
-        /// <param name="R"></param>
-        /// <param name="L"></param>
-        /// <param name="U"></param>
-        /// <param name="D"></param>
+        /// <param name="pX">Zmienna przechowująca połozenie X gracza</param>
+        /// <param name="pY">Zmienna przechowująca połozenie Y gracza</param>
+        /// <param name="R">Zmienna przechowująca czy ruch w prawo</param>
+        /// <param name="L">Zmienna przechowująca czy ruch w lewo</param>
+        /// <param name="U">Zmienna przechowująca czy ruch w górę</param>
+        /// <param name="D">Zmienna przechowująca czy ruch w dół</param>
         public PlayerMove(int pX, int pY, bool R, bool L, bool U, bool D)
         {
             this.playerX = pX;
@@ -46,9 +46,9 @@ namespace TrashMaze
             this.goDown = D;
         }
         /// <summary>
-        /// metoda zwracająca nowe położenie X gracza
+        /// Metoda zwracająca nowe położenie X gracza
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Zwraca położenie X gracza </returns>
         public int playerMovementX()
         {
             if (goLeft)
@@ -62,9 +62,9 @@ namespace TrashMaze
             return playerX;
         }
         /// <summary>
-        /// metoda zwracajaca nowe położenie Y gracza
+        /// Metoda zwracajaca nowe położenie Y gracza
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Zwraca połozenie Y gracza</returns>
         public int playerMovementY()
         {
             if (goUp)
