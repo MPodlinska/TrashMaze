@@ -16,5 +16,5 @@ Use WASD to move character around the maze, pick trash one by one and throw them
 * reseting system
 * instruction window
 * timer
-* picing objets
+* picking objets
 * table of objects
