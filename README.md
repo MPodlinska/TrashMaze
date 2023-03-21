@@ -1,5 +1,5 @@
 # TrashMaze
-Univercity Project JPWP 2022. Serious Game, which is supposed to teach children and adults proper trash segregation.
+University Project JPWP 2022. Serious Game, which is supposed to teach children and adults proper trash segregation.
 
 ## How to play
 Use WASD to move character around the maze, pick trash one by one and throw them to the right bins.  Every level has a clock and proper time set. If player manage to do pick up all trashes, he/she/they can leave the maze and win/s. At the beginning player is given one tree and one seed. Player can finish the level as long as has one tree. Cleaning the maze from all the trashes allow the seed become a tree.
